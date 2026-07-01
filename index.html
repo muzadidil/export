@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NusaExport — Premium Indonesian Commodities</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#1a5c2e;--gold:#c8912a;--light:#f9f6f0;--dark:#1a1a1a;--gray:#6b7280}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dark);scroll-behavior:smooth}
+/* NAV */
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);z-index:999;border-bottom:1px solid #e5e7eb;padding:0 5%}
+.nav-inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-size:1.5rem;font-weight:800;color:var(--green);letter-spacing:-0.5px}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--dark);font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.lang-btn{display:flex;gap:6px}
+.lang-btn button{border:1.5px solid var(--green);background:transparent;color:var(--green);padding:5px 12px;border-radius:6px;cursor:pointer;font-size:.8rem;font-weight:600;transition:all .2s}
+.lang-btn button.active{background:var(--green);color:#fff}
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#0d3b1e 0%,#1a5c2e 50%,#0d3b1e 100%);display:flex;align-items:center;padding:80px 5% 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{max-width:1200px;margin:auto;width:100%}
+.hero-badge{display:inline-block;background:rgba(200,145,42,.15);border:1px solid rgba(200,145,42,.4);color:var(--gold);padding:6px 16px;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:.5px;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:1.2rem}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,.75);max-width:560px;line-height:1.7;margin-bottom:2.5rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .2s;border:none;cursor:pointer}
+.btn-primary:hover{background:#b07d22;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.95rem;border:2px solid rgba(255,255,255,.4);transition:all .2s}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.hero-stats{display:flex;gap:3rem;margin-top:4rem;flex-wrap:wrap}
+.stat h3{font-size:2rem;font-weight:800;color:var(--gold)}
+.stat p{font-size:.85rem;color:rgba(255,255,255,.6);margin-top:2px}
+/* ABOUT */
+.about{padding:100px 5%;background:var(--light)}
+.section-inner{max-width:1200px;margin:auto}
+.section-label{font-size:.8rem;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:.8rem}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--dark);line-height:1.2;margin-bottom:1.2rem}
+.section-title span{color:var(--green)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem}
+.about-text p{color:var(--gray);line-height:1.8;margin-bottom:1rem;font-size:.95rem}
+.about-features{display:grid;gap:1rem;margin-top:1.5rem}
+.feature{display:flex;gap:.8rem;align-items:flex-start}
+.feature-icon{width:40px;height:40px;background:rgba(26,92,46,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.feature h4{font-size:.9rem;font-weight:700;margin-bottom:2px}
+.feature p{font-size:.83rem;color:var(--gray);line-height:1.5}
+.about-visual{background:linear-gradient(135deg,var(--green),#2d7a47);border-radius:20px;padding:3rem;color:#fff}
+.about-visual h3{font-size:1.4rem;font-weight:700;margin-bottom:1.5rem}
+.cert-list{display:grid;gap:1rem}
+.cert-item{background:rgba(255,255,255,.1);border-radius:10px;padding:1rem 1.2rem;display:flex;align-items:center;gap:.8rem;font-size:.88rem;font-weight:500}
+.cert-icon{font-size:1.3rem}
+/* PRODUCTS */
+.products{padding:100px 5%;background:#fff}
+.products-header{text-align:center;margin-bottom:4rem}
+.products-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem}
+.product-card{border-radius:16px;overflow:hidden;border:1px solid #e5e7eb;transition:all .3s;background:#fff}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1);border-color:var(--green)}
+.product-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
+.product-img.porang{background:linear-gradient(135deg,#e8f5e9,#c8e6c9)}
+.product-img.cabe{background:linear-gradient(135deg,#fce4ec,#f8bbd0)}
+.product-img.kopi{background:linear-gradient(135deg,#efebe9,#d7ccc8)}
+.product-img.vanili{background:linear-gradient(135deg,#fff8e1,#ffecb3)}
+.product-badge{position:absolute;top:12px;right:12px;background:var(--green);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px}
+.product-body{padding:1.4rem}
+.product-body h3{font-size:1.05rem;font-weight:700;margin-bottom:.4rem;color:var(--dark)}
+.product-body p{font-size:.83rem;color:var(--gray);line-height:1.6;margin-bottom:1rem}
+.product-meta{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gray);border-top:1px solid #f3f4f6;padding-top:.8rem}
+.product-meta span{display:flex;align-items:center;gap:4px;font-weight:500}
+/* WHY */
+.why{padding:100px 5%;background:var(--light)}
+.why-grid{max-width:1200px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem}
+.why-card{background:#fff;border-radius:14px;padding:2rem;text-align:center;border:1px solid #e5e7eb;transition:all .3s}
+.why-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.why-icon{font-size:2.5rem;margin-bottom:1rem}
+.why-card h4{font-size:1rem;font-weight:700;margin-bottom:.5rem;color:var(--dark)}
+.why-card p{font-size:.83rem;color:var(--gray);line-height:1.6}
+/* CONTACT */
+.contact{padding:100px 5%;background:linear-gradient(135deg,#0d3b1e,#1a5c2e)}
+.contact-inner{max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-info h2{font-size:2rem;font-weight:800;color:#fff;margin-bottom:1rem}
+.contact-info p{color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:2rem;font-size:.95rem}
+.contact-detail{display:flex;flex-direction:column;gap:1rem}
+.contact-item{display:flex;align-items:center;gap:.8rem;color:rgba(255,255,255,.8);font-size:.9rem}
+.contact-item span:first-child{font-size:1.2rem}
+.contact-form{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:2.5rem}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:.4rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:10px 14px;color:#fff;font-size:.9rem;outline:none;transition:border .2s;font-family:inherit}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.35)}
+.form-group select option{background:#1a5c2e;color:#fff}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{width:100%;background:var(--gold);color:#fff;border:none;padding:13px;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;margin-top:.5rem}
+.form-submit:hover{background:#b07d22;transform:translateY(-1px)}
+/* FOOTER */
+footer{background:#0d3b1e;padding:2rem 5%;text-align:center;color:rgba(255,255,255,.4);font-size:.82rem;border-top:1px solid rgba(255,255,255,.08)}
+footer span{color:var(--gold)}
+/* RESPONSIVE */
+@media(max-width:768px){
+.about-grid,.contact-inner{grid-template-columns:1fr;gap:2.5rem}
+.nav-links{display:none}
+.hero-stats{gap:1.5rem}
+.hero-stats .stat h3{font-size:1.5rem}
+}
+/* TOAST */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--green);color:#fff;padding:12px 22px;border-radius:8px;font-size:.88rem;font-weight:600;z-index:9999;transform:translateY(100px);opacity:0;transition:all .3s}
+.toast.show{transform:translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Nusa<span>Export</span></div>
+    <ul class="nav-links">
+      <li><a href="#about" data-i="nav_about">Tentang Kami</a></li>
+      <li><a href="#products" data-i="nav_products">Produk</a></li>
+      <li><a href="#why" data-i="nav_why">Keunggulan</a></li>
+      <li><a href="#contact" data-i="nav_contact">Kontak</a></li>
+    </ul>
+    <div class="lang-btn">
+      <button onclick="setLang('id')" id="btn-id" class="active">ID</button>
+      <button onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge" data-i="hero_badge">🌿 Komoditas Unggulan Indonesia</div>
+    <h1 data-i="hero_title">Ekspor Terbaik dari<br><span>Bumi Nusantara</span></h1>
+    <p data-i="hero_desc">Menghubungkan kualitas alam Indonesia dengan pasar global. Porang, Cabe Jamu, Kopi, dan Vanili pilihan terbaik langsung dari petani terpercaya.</p>
+    <div class="hero-cta">
+      <a href="#products" class="btn-primary" data-i="hero_cta1">Lihat Produk</a>
+      <a href="#contact" class="btn-outline" data-i="hero_cta2">Hubungi Kami</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><h3>15+</h3><p data-i="stat1">Negara Tujuan</p></div>
+      <div class="stat"><h3>500T</h3><p data-i="stat2">Ton Diekspor/Tahun</p></div>
+      <div class="stat"><h3>100%</h3><p data-i="stat3">Produk Tersertifikasi</p></div>
+      <div class="stat"><h3>8+</h3><p data-i="stat4">Tahun Pengalaman</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <p class="section-label" data-i="about_label">Tentang Kami</p>
+    <h2 class="section-title" data-i="about_title">Mitra Ekspor <span>Terpercaya</span></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-i="about_p1">NusaExport adalah perusahaan ekspor komoditas pertanian Indonesia yang berfokus pada kualitas premium dan keberlanjutan. Kami bekerja langsung bersama petani lokal terpilih untuk memastikan setiap produk memenuhi standar internasional.</p>
+        <p data-i="about_p2">Dengan jaringan distribusi yang kuat di Asia, Eropa, dan Amerika, kami menjamin ketepatan pengiriman dan konsistensi kualitas yang menjadi andalan mitra bisnis global kami.</p>
+        <div class="about-features">
+          <div class="feature"><div class="feature-icon">🌱</div><div><h4 data-i="f1_title">Langsung dari Petani</h4><p data-i="f1_desc">Sumber produk langsung, tanpa perantara berlebihan</p></div></div>
+          <div class="feature"><div class="feature-icon">🔬</div><div><h4 data-i="f2_title">Quality Control Ketat</h4><p data-i="f2_desc">Uji lab setiap batch sebelum pengiriman</p></div></div>
+          <div class="feature"><div class="feature-icon">📦</div><div><h4 data-i="f3_title">Pengemasan Profesional</h4><p data-i="f3_desc">Kemasan sesuai standar ekspor internasional</p></div></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <h3 data-i="cert_title">📋 Sertifikasi & Standar</h3>
+        <div class="cert-list">
+          <div class="cert-item"><span class="cert-icon">✅</span><span>PHYTOSANITARY Certificate</span></div>
+          <div class="cert-item"><span class="cert-icon">✅</span><span>Certificate of Origin (SKA)</span></div>
+          <div class="cert-item"><span class="cert-icon">✅</span><span>ISO 22000 Food Safety</span></div>
+          <div class="cert-item"><span class="cert-icon">✅</span><span>Organic Certification (USDA/EU)</span></div>
+          <div class="cert-item"><span class="cert-icon">✅</span><span>Halal Certified — MUI</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header section-inner">
+    <p class="section-label" data-i="prod_label">Produk Kami</p>
+    <h2 class="section-title" data-i="prod_title">Komoditas <span>Unggulan</span></h2>
+    <p style="color:var(--gray);max-width:520px;margin:.8rem auto 0;font-size:.95rem" data-i="prod_subtitle">Empat komoditas premium pilihan terbaik dari seluruh kepulauan Indonesia</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-img porang"><span>🌰</span><span class="product-badge">Export Grade A</span></div>
+      <div class="product-body">
+        <h3 data-i="p1_name">Porang (Amorphophallus)</h3>
+        <p data-i="p1_desc">Umbi porang kering / tepung konjak premium, tinggi glucomannan. Diminati industri pangan Jepang, China, dan Eropa sebagai bahan shirataki dan gelling agent.</p>
+        <div class="product-meta"><span>⚖️ <span data-i="p1_min">Min. 1 Ton</span></span><span>🚢 <span data-i="p1_origin">Jawa Timur</span></span></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img cabe"><span>🌶️</span><span class="product-badge">Organic</span></div>
+      <div class="product-body">
+        <h3 data-i="p2_name">Cabe Jamu (Piper retrofractum)</h3>
+        <p data-i="p2_desc">Lada panjang khas Jawa, kaya piperin dan capsaicin. Banyak diekspor ke India, Pakistan, dan Timur Tengah untuk kebutuhan farmasi dan rempah tradisional.</p>
+        <div class="product-meta"><span>⚖️ <span data-i="p2_min">Min. 500 Kg</span></span><span>🚢 <span data-i="p2_origin">Madura, Jatim</span></span></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img kopi"><span>☕</span><span class="product-badge">Specialty Grade</span></div>
+      <div class="product-body">
+        <h3 data-i="p3_name">Kopi Arabika & Robusta</h3>
+        <p data-i="p3_desc">Biji kopi pilihan dari dataran tinggi Flores, Toraja, dan Gayo. Profil rasa kompleks dengan skor cupping 83+. Tersedia green bean maupun roasted.</p>
+        <div class="product-meta"><span>⚖️ <span data-i="p3_min">Min. 200 Kg</span></span><span>🚢 <span data-i="p3_origin">Flores, Toraja, Gayo</span></span></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img vanili"><span>🌸</span><span class="product-badge">Premium</span></div>
+      <div class="product-body">
+        <h3 data-i="p4_name">Vanili (Vanilla planifolia)</h3>
+        <p data-i="p4_desc">Vanili Indonesia dikenal sebagai salah satu terbaik dunia. Kadar vanillin tinggi, aroma kuat dan tahan lama. Diekspor ke Amerika, Eropa, dan Jepang.</p>
+        <div class="product-meta"><span>⚖️ <span data-i="p4_min">Min. 50 Kg</span></span><span>🚢 <span data-i="p4_origin">NTT, Papua</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="section-inner" style="text-align:center">
+    <p class="section-label" data-i="why_label">Keunggulan</p>
+    <h2 class="section-title" data-i="why_title">Mengapa <span>NusaExport?</span></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">🤝</div><h4 data-i="w1_t">Kemitraan Langsung</h4><p data-i="w1_d">Bermitra langsung dengan kelompok tani bersertifikat. Harga kompetitif tanpa biaya broker yang membengkak.</p></div>
+    <div class="why-card"><div class="why-icon">🌍</div><h4 data-i="w2_t">Jaringan Global</h4><p data-i="w2_d">Pengiriman ke 15+ negara. Kami menangani semua dokumen ekspor, bea cukai, dan logistik internasional.</p></div>
+    <div class="why-card"><div class="why-icon">🔍</div><h4 data-i="w3_t">Transparansi Penuh</h4><p data-i="w3_d">Laporan analisis laboratorium, traceability produk dari lahan ke pelabuhan, tersedia untuk setiap pengiriman.</p></div>
+    <div class="why-card"><div class="why-icon">⚡</div><h4 data-i="w4_t">Respons Cepat</h4><p data-i="w4_d">Tim kami siap membalas inquiry dalam 24 jam. Penawaran harga terbit dalam 1x2 hari kerja.</p></div>
+    <div class="why-card"><div class="why-icon">📜</div><h4 data-i="w5_t">Dokumen Lengkap</h4><p data-i="w5_d">Phytosanitary, COO, COA, Packing List, hingga L/C — semua kami proses secara profesional dan tepat waktu.</p></div>
+    <div class="why-card"><div class="why-icon">♻️</div><h4 data-i="w6_t">Berkelanjutan</h4><p data-i="w6_d">Komitmen pada praktik pertanian ramah lingkungan dan pemberdayaan petani lokal di seluruh Indonesia.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <h2 data-i="contact_title">Hubungi Kami</h2>
+      <p data-i="contact_desc">Tertarik dengan produk kami? Tim ekspor kami siap memberikan penawaran terbaik dan informasi lengkap sesuai kebutuhan bisnis Anda.</p>
+      <div class="contact-detail">
+        <div class="contact-item"><span>📧</span><span>export@nusaexport.id</span></div>
+        <div class="contact-item"><span>📱</span><span>+62 812-0000-0000 (WhatsApp)</span></div>
+        <div class="contact-item"><span>📍</span><span data-i="contact_loc">Jakarta & Surabaya, Indonesia</span></div>
+        <div class="contact-item"><span>🕐</span><span data-i="contact_hours">Senin–Jumat, 08.00–17.00 WIB</span></div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <div class="form-group">
+        <label data-i="f_name">Nama / Company</label>
+        <input type="text" required placeholder="PT. Example International">
+      </div>
+      <div class="form-group">
+        <label data-i="f_email">Email</label>
+        <input type="email" required placeholder="buyer@company.com">
+      </div>
+      <div class="form-group">
+        <label data-i="f_country">Negara Tujuan / Destination</label>
+        <input type="text" placeholder="Japan, China, USA...">
+      </div>
+      <div class="form-group">
+        <label data-i="f_product">Produk yang Diminati</label>
+        <select>
+          <option value="" data-i="f_sel">-- Pilih Produk --</option>
+          <option>Porang / Konjac</option>
+          <option>Cabe Jamu / Long Pepper</option>
+          <option>Kopi Arabika / Robusta</option>
+          <option>Vanili / Vanilla</option>
+          <option data-i="f_all">Semua Produk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-i="f_msg">Pesan</label>
+        <textarea placeholder="Quantity yang dibutuhkan, spesifikasi, dll..."></textarea>
+      </div>
+      <button type="submit" class="form-submit" data-i="f_submit">Kirim Inquiry →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 <span>NusaExport</span> — <span data-i="footer_text">Ekspor Komoditas Unggulan Indonesia ke Pasar Global</span></p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const t={
+  id:{
+    nav_about:"Tentang Kami",nav_products:"Produk",nav_why:"Keunggulan",nav_contact:"Kontak",
+    hero_badge:"🌿 Komoditas Unggulan Indonesia",
+    hero_title:"Ekspor Terbaik dari<br><span>Bumi Nusantara</span>",
+    hero_desc:"Menghubungkan kualitas alam Indonesia dengan pasar global. Porang, Cabe Jamu, Kopi, dan Vanili pilihan terbaik langsung dari petani terpercaya.",
+    hero_cta1:"Lihat Produk",hero_cta2:"Hubungi Kami",
+    stat1:"Negara Tujuan",stat2:"Ton Diekspor/Tahun",stat3:"Produk Tersertifikasi",stat4:"Tahun Pengalaman",
+    about_label:"Tentang Kami",about_title:"Mitra Ekspor <span>Terpercaya</span>",
+    about_p1:"NusaExport adalah perusahaan ekspor komoditas pertanian Indonesia yang berfokus pada kualitas premium dan keberlanjutan. Kami bekerja langsung bersama petani lokal terpilih untuk memastikan setiap produk memenuhi standar internasional.",
+    about_p2:"Dengan jaringan distribusi yang kuat di Asia, Eropa, dan Amerika, kami menjamin ketepatan pengiriman dan konsistensi kualitas yang menjadi andalan mitra bisnis global kami.",
+    f1_title:"Langsung dari Petani",f1_desc:"Sumber produk langsung, tanpa perantara berlebihan",
+    f2_title:"Quality Control Ketat",f2_desc:"Uji lab setiap batch sebelum pengiriman",
+    f3_title:"Pengemasan Profesional",f3_desc:"Kemasan sesuai standar ekspor internasional",
+    cert_title:"📋 Sertifikasi & Standar",
+    prod_label:"Produk Kami",prod_title:"Komoditas <span>Unggulan</span>",prod_subtitle:"Empat komoditas premium pilihan terbaik dari seluruh kepulauan Indonesia",
+    p1_name:"Porang (Amorphophallus)",p1_desc:"Umbi porang kering / tepung konjak premium, tinggi glucomannan. Diminati industri pangan Jepang, China, dan Eropa sebagai bahan shirataki dan gelling agent.",p1_min:"Min. 1 Ton",p1_origin:"Jawa Timur",
+    p2_name:"Cabe Jamu (Piper retrofractum)",p2_desc:"Lada panjang khas Jawa, kaya piperin dan capsaicin. Banyak diekspor ke India, Pakistan, dan Timur Tengah untuk kebutuhan farmasi dan rempah tradisional.",p2_min:"Min. 500 Kg",p2_origin:"Madura, Jatim",
+    p3_name:"Kopi Arabika & Robusta",p3_desc:"Biji kopi pilihan dari dataran tinggi Flores, Toraja, dan Gayo. Profil rasa kompleks dengan skor cupping 83+. Tersedia green bean maupun roasted.",p3_min:"Min. 200 Kg",p3_origin:"Flores, Toraja, Gayo",
+    p4_name:"Vanili (Vanilla planifolia)",p4_desc:"Vanili Indonesia dikenal sebagai salah satu terbaik dunia. Kadar vanillin tinggi, aroma kuat dan tahan lama. Diekspor ke Amerika, Eropa, dan Jepang.",p4_min:"Min. 50 Kg",p4_origin:"NTT, Papua",
+    why_label:"Keunggulan",why_title:"Mengapa <span>NusaExport?</span>",
+    w1_t:"Kemitraan Langsung",w1_d:"Bermitra langsung dengan kelompok tani bersertifikat. Harga kompetitif tanpa biaya broker yang membengkak.",
+    w2_t:"Jaringan Global",w2_d:"Pengiriman ke 15+ negara. Kami menangani semua dokumen ekspor, bea cukai, dan logistik internasional.",
+    w3_t:"Transparansi Penuh",w3_d:"Laporan analisis laboratorium, traceability produk dari lahan ke pelabuhan, tersedia untuk setiap pengiriman.",
+    w4_t:"Respons Cepat",w4_d:"Tim kami siap membalas inquiry dalam 24 jam. Penawaran harga terbit dalam 1x2 hari kerja.",
+    w5_t:"Dokumen Lengkap",w5_d:"Phytosanitary, COO, COA, Packing List, hingga L/C — semua kami proses secara profesional dan tepat waktu.",
+    w6_t:"Berkelanjutan",w6_d:"Komitmen pada praktik pertanian ramah lingkungan dan pemberdayaan petani lokal di seluruh Indonesia.",
+    contact_title:"Hubungi Kami",contact_desc:"Tertarik dengan produk kami? Tim ekspor kami siap memberikan penawaran terbaik dan informasi lengkap sesuai kebutuhan bisnis Anda.",
+    contact_loc:"Jakarta & Surabaya, Indonesia",contact_hours:"Senin–Jumat, 08.00–17.00 WIB",
+    f_name:"Nama / Company",f_email:"Email",f_country:"Negara Tujuan",f_product:"Produk yang Diminati",f_sel:"-- Pilih Produk --",f_all:"Semua Produk",f_msg:"Pesan",f_submit:"Kirim Inquiry →",
+    footer_text:"Ekspor Komoditas Unggulan Indonesia ke Pasar Global",
+    toast_ok:"Terima kasih! Kami akan segera menghubungi Anda."
+  },
+  en:{
+    nav_about:"About Us",nav_products:"Products",nav_why:"Why Us",nav_contact:"Contact",
+    hero_badge:"🌿 Indonesia's Premium Commodities",
+    hero_title:"The Finest Exports from<br><span>the Indonesian Archipelago</span>",
+    hero_desc:"Connecting Indonesia's natural quality with global markets. Porang, Long Pepper, Coffee, and Vanilla — sourced directly from trusted farmers.",
+    hero_cta1:"View Products",hero_cta2:"Contact Us",
+    stat1:"Destination Countries",stat2:"Tons Exported/Year",stat3:"Certified Products",stat4:"Years Experience",
+    about_label:"About Us",about_title:"Your Trusted <span>Export Partner</span>",
+    about_p1:"NusaExport is an Indonesian agricultural commodity export company focused on premium quality and sustainability. We work directly with selected local farmers to ensure every product meets international standards.",
+    about_p2:"With a strong distribution network across Asia, Europe, and the Americas, we guarantee timely delivery and consistent quality that our global business partners rely on.",
+    f1_title:"Direct from Farmers",f1_desc:"Products sourced directly, minimizing unnecessary intermediaries",
+    f2_title:"Strict Quality Control",f2_desc:"Lab testing for every batch before shipment",
+    f3_title:"Professional Packaging",f3_desc:"Packaging compliant with international export standards",
+    cert_title:"📋 Certifications & Standards",
+    prod_label:"Our Products",prod_title:"Premium <span>Commodities</span>",prod_subtitle:"Four top-grade commodities from across the Indonesian archipelago",
+    p1_name:"Porang (Amorphophallus)",p1_desc:"Dried porang tuber / premium konjac flour, high in glucomannan. In high demand by food industries in Japan, China, and Europe for shirataki and gelling applications.",p1_min:"Min. 1 Ton",p1_origin:"East Java",
+    p2_name:"Long Pepper (Piper retrofractum)",p2_desc:"Javanese long pepper, rich in piperine and capsaicin. Widely exported to India, Pakistan, and the Middle East for pharmaceutical and traditional spice use.",p2_min:"Min. 500 Kg",p2_origin:"Madura, East Java",
+    p3_name:"Arabica & Robusta Coffee",p3_desc:"Selected coffee beans from the highlands of Flores, Toraja, and Gayo. Complex flavor profiles with cupping scores 83+. Available as green bean or roasted.",p3_min:"Min. 200 Kg",p3_origin:"Flores, Toraja, Gayo",
+    p4_name:"Vanilla (Vanilla planifolia)",p4_desc:"Indonesian vanilla is among the finest in the world. High vanillin content with a strong, lasting aroma. Exported to the US, Europe, and Japan.",p4_min:"Min. 50 Kg",p4_origin:"NTT, Papua",
+    why_label:"Why Us",why_title:"Why <span>NusaExport?</span>",
+    w1_t:"Direct Partnerships",w1_d:"We partner directly with certified farmer groups, offering competitive prices without inflated broker fees.",
+    w2_t:"Global Network",w2_d:"Shipping to 15+ countries. We handle all export documents, customs clearance, and international logistics.",
+    w3_t:"Full Transparency",w3_d:"Laboratory analysis reports and full product traceability from field to port, available for every shipment.",
+    w4_t:"Fast Response",w4_d:"Our team responds to inquiries within 24 hours. Price offers issued within 1–2 business days.",
+    w5_t:"Complete Documentation",w5_d:"Phytosanitary, COO, COA, Packing List, and L/C — all processed professionally and on time.",
+    w6_t:"Sustainable",w6_d:"Committed to environmentally friendly farming practices and empowering local farmers across Indonesia.",
+    contact_title:"Contact Us",contact_desc:"Interested in our products? Our export team is ready to provide the best offer and complete information for your business needs.",
+    contact_loc:"Jakarta & Surabaya, Indonesia",contact_hours:"Monday–Friday, 08:00–17:00 WIB (GMT+7)",
+    f_name:"Name / Company",f_email:"Email",f_country:"Destination Country",f_product:"Product of Interest",f_sel:"-- Select Product --",f_all:"All Products",f_msg:"Message",f_submit:"Send Inquiry →",
+    footer_text:"Exporting Indonesia's Finest Commodities to Global Markets",
+    toast_ok:"Thank you! We will get back to you shortly."
+  }
+};
+
+let lang='id';
+
+function setLang(l){
+  lang=l;
+  document.getElementById('btn-id').className=l==='id'?'active':'';
+  document.getElementById('btn-en').className=l==='en'?'active':'';
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const key=el.getAttribute('data-i');
+    if(t[l][key]!==undefined) el.innerHTML=t[l][key];
+  });
+}
+
+function submitForm(e){
+  e.preventDefault();
+  const toast=document.getElementById('toast');
+  toast.textContent=t[lang].toast_ok;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),3500);
+  e.target.reset();
+}
+
+// Smooth scroll for nav
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})});
+});
+</script>
+</body>
+</html>
