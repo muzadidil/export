@@ -20,9 +20,8 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.96);backdrop-fi
 .lang-btn button{border:1.5px solid var(--green);background:transparent;color:var(--green);padding:5px 12px;border-radius:6px;cursor:pointer;font-size:.8rem;font-weight:600;transition:all .2s}
 .lang-btn button.active{background:var(--green);color:#fff}
 /* HERO */
-.hero{min-height:100vh;background:linear-gradient(135deg,#0d3b1e 0%,#1a5c2e 50%,#0d3b1e 100%);display:flex;align-items:center;padding:80px 5% 60px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero-content{max-width:1200px;margin:auto;width:100%}
+.hero{min-height:100vh;background:linear-gradient(135deg,rgba(13,59,30,.94) 0%,rgba(26,92,46,.88) 50%,rgba(13,59,30,.94) 100%),url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;display:flex;align-items:center;padding:80px 5% 60px;position:relative;overflow:hidden}
+.hero-content{max-width:1200px;margin:auto;width:100%;position:relative;z-index:2}
 .hero-badge{display:inline-block;background:rgba(200,145,42,.15);border:1px solid rgba(200,145,42,.4);color:var(--gold);padding:6px 16px;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:.5px;margin-bottom:1.5rem}
 .hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:1.2rem}
 .hero h1 span{color:var(--gold)}
@@ -48,7 +47,9 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.96);backdrop-fi
 .feature-icon{width:40px;height:40px;background:rgba(26,92,46,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
 .feature h4{font-size:.9rem;font-weight:700;margin-bottom:2px}
 .feature p{font-size:.83rem;color:var(--gray);line-height:1.5}
-.about-visual{background:linear-gradient(135deg,var(--green),#2d7a47);border-radius:20px;padding:3rem;color:#fff}
+.about-visual{background:linear-gradient(135deg,rgba(13,59,30,.92),rgba(45,122,71,.88)),url('https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;border-radius:20px;padding:3rem;color:#fff}
+.about-photo{border-radius:16px;overflow:hidden;margin-bottom:2rem;height:220px}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .about-visual h3{font-size:1.4rem;font-weight:700;margin-bottom:1.5rem}
 .cert-list{display:grid;gap:1rem}
 .cert-item{background:rgba(255,255,255,.1);border-radius:10px;padding:1rem 1.2rem;display:flex;align-items:center;gap:.8rem;font-size:.88rem;font-weight:500}
@@ -59,12 +60,10 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.96);backdrop-fi
 .products-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem}
 .product-card{border-radius:16px;overflow:hidden;border:1px solid #e5e7eb;transition:all .3s;background:#fff}
 .product-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1);border-color:var(--green)}
-.product-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
-.product-img.porang{background:linear-gradient(135deg,#e8f5e9,#c8e6c9)}
-.product-img.cabe{background:linear-gradient(135deg,#fce4ec,#f8bbd0)}
-.product-img.kopi{background:linear-gradient(135deg,#efebe9,#d7ccc8)}
-.product-img.vanili{background:linear-gradient(135deg,#fff8e1,#ffecb3)}
-.product-badge{position:absolute;top:12px;right:12px;background:var(--green);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px}
+.product-card:hover .product-img img{transform:scale(1.08)}
+.product-img{height:200px;position:relative;overflow:hidden;background:#f3f4f6}
+.product-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.product-badge{position:absolute;top:12px;right:12px;background:var(--green);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px;z-index:2}
 .product-body{padding:1.4rem}
 .product-body h3{font-size:1.05rem;font-weight:700;margin-bottom:.4rem;color:var(--dark)}
 .product-body p{font-size:.83rem;color:var(--gray);line-height:1.6;margin-bottom:1rem}
@@ -156,6 +155,7 @@ footer span{color:var(--gold)}
     <h2 class="section-title" data-i="about_title">Mitra Ekspor <span>Terpercaya</span></h2>
     <div class="about-grid">
       <div class="about-text">
+        <div class="about-photo"><img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=900&q=80" alt="Petani Indonesia memanen hasil bumi" loading="lazy"></div>
         <p data-i="about_p1">NusaExport adalah perusahaan ekspor komoditas pertanian Indonesia yang berfokus pada kualitas premium dan keberlanjutan. Kami bekerja langsung bersama petani lokal terpilih untuk memastikan setiap produk memenuhi standar internasional.</p>
         <p data-i="about_p2">Dengan jaringan distribusi yang kuat di Asia, Eropa, dan Amerika, kami menjamin ketepatan pengiriman dan konsistensi kualitas yang menjadi andalan mitra bisnis global kami.</p>
         <div class="about-features">
@@ -187,7 +187,7 @@ footer span{color:var(--gold)}
   </div>
   <div class="products-grid">
     <div class="product-card">
-      <div class="product-img porang"><span>🌰</span><span class="product-badge">Export Grade A</span></div>
+      <div class="product-img"><img src="https://images.unsplash.com/photo-1590165482129-1b8b27698780?auto=format&fit=crop&w=600&q=80" alt="Porang" loading="lazy"><span class="product-badge">Export Grade A</span></div>
       <div class="product-body">
         <h3 data-i="p1_name">Porang (Amorphophallus)</h3>
         <p data-i="p1_desc">Umbi porang kering / tepung konjak premium, tinggi glucomannan. Diminati industri pangan Jepang, China, dan Eropa sebagai bahan shirataki dan gelling agent.</p>
@@ -195,7 +195,7 @@ footer span{color:var(--gold)}
       </div>
     </div>
     <div class="product-card">
-      <div class="product-img cabe"><span>🌶️</span><span class="product-badge">Organic</span></div>
+      <div class="product-img"><img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?auto=format&fit=crop&w=600&q=80" alt="Cabe Jamu" loading="lazy"><span class="product-badge">Organic</span></div>
       <div class="product-body">
         <h3 data-i="p2_name">Cabe Jamu (Piper retrofractum)</h3>
         <p data-i="p2_desc">Lada panjang khas Jawa, kaya piperin dan capsaicin. Banyak diekspor ke India, Pakistan, dan Timur Tengah untuk kebutuhan farmasi dan rempah tradisional.</p>
@@ -203,7 +203,7 @@ footer span{color:var(--gold)}
       </div>
     </div>
     <div class="product-card">
-      <div class="product-img kopi"><span>☕</span><span class="product-badge">Specialty Grade</span></div>
+      <div class="product-img"><img src="https://images.unsplash.com/photo-1442550528053-c431ecb55509?auto=format&fit=crop&w=600&q=80" alt="Kopi Arabika Robusta" loading="lazy"><span class="product-badge">Specialty Grade</span></div>
       <div class="product-body">
         <h3 data-i="p3_name">Kopi Arabika & Robusta</h3>
         <p data-i="p3_desc">Biji kopi pilihan dari dataran tinggi Flores, Toraja, dan Gayo. Profil rasa kompleks dengan skor cupping 83+. Tersedia green bean maupun roasted.</p>
@@ -211,7 +211,7 @@ footer span{color:var(--gold)}
       </div>
     </div>
     <div class="product-card">
-      <div class="product-img vanili"><span>🌸</span><span class="product-badge">Premium</span></div>
+      <div class="product-img"><img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=600&q=80" alt="Vanili" loading="lazy"><span class="product-badge">Premium</span></div>
       <div class="product-body">
         <h3 data-i="p4_name">Vanili (Vanilla planifolia)</h3>
         <p data-i="p4_desc">Vanili Indonesia dikenal sebagai salah satu terbaik dunia. Kadar vanillin tinggi, aroma kuat dan tahan lama. Diekspor ke Amerika, Eropa, dan Jepang.</p>
