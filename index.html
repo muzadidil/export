@@ -51,9 +51,13 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.96);backdrop-fi
 .about-photo{border-radius:16px;overflow:hidden;margin-bottom:2rem;height:220px}
 .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .about-visual h3{font-size:1.4rem;font-weight:700;margin-bottom:1.5rem}
-.cert-list{display:grid;gap:1rem}
-.cert-item{background:rgba(255,255,255,.1);border-radius:10px;padding:1rem 1.2rem;display:flex;align-items:center;gap:.8rem;font-size:.88rem;font-weight:500}
-.cert-icon{font-size:1.3rem}
+.about-visual h3{display:flex;align-items:center;gap:.6rem}
+.about-visual h3 svg{flex-shrink:0}
+.cert-list{display:grid;gap:.7rem}
+.cert-item{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:.9rem 1.1rem;display:flex;align-items:center;gap:.8rem;font-size:.87rem;font-weight:500;transition:background .2s,border-color .2s}
+.cert-item:hover{background:rgba(255,255,255,.13);border-color:rgba(200,145,42,.5)}
+.cert-icon{width:26px;height:26px;border-radius:50%;background:rgba(200,145,42,.18);border:1px solid rgba(200,145,42,.5);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cert-icon svg{width:13px;height:13px}
 /* PRODUCTS */
 .products{padding:100px 5%;background:#fff}
 .products-header{text-align:center;margin-bottom:4rem}
@@ -165,13 +169,13 @@ footer span{color:var(--gold)}
         </div>
       </div>
       <div class="about-visual">
-        <h3 data-i="cert_title">📋 Sertifikasi & Standar</h3>
+        <h3><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3v6c0 5-3.2 8.5-7 11-3.8-2.5-7-6-7-11V5l7-3z"/></svg><span data-i="cert_title">Sertifikasi & Standar</span></h3>
         <div class="cert-list">
-          <div class="cert-item"><span class="cert-icon">✅</span><span>PHYTOSANITARY Certificate</span></div>
-          <div class="cert-item"><span class="cert-icon">✅</span><span>Certificate of Origin (SKA)</span></div>
-          <div class="cert-item"><span class="cert-icon">✅</span><span>ISO 22000 Food Safety</span></div>
-          <div class="cert-item"><span class="cert-icon">✅</span><span>Organic Certification (USDA/EU)</span></div>
-          <div class="cert-item"><span class="cert-icon">✅</span><span>Halal Certified — MUI</span></div>
+          <div class="cert-item"><span class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E3C45A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>PHYTOSANITARY Certificate</span></div>
+          <div class="cert-item"><span class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E3C45A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Certificate of Origin (SKA)</span></div>
+          <div class="cert-item"><span class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E3C45A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>ISO 22000 Food Safety</span></div>
+          <div class="cert-item"><span class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E3C45A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Organic Certification (USDA/EU)</span></div>
+          <div class="cert-item"><span class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E3C45A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Halal Certified — MUI</span></div>
         </div>
       </div>
     </div>
@@ -304,7 +308,7 @@ const t={
     f1_title:"Langsung dari Petani",f1_desc:"Sumber produk langsung, tanpa perantara berlebihan",
     f2_title:"Quality Control Ketat",f2_desc:"Uji lab setiap batch sebelum pengiriman",
     f3_title:"Pengemasan Profesional",f3_desc:"Kemasan sesuai standar ekspor internasional",
-    cert_title:"📋 Sertifikasi & Standar",
+    cert_title:"Sertifikasi & Standar",
     prod_label:"Produk Kami",prod_title:"Komoditas <span>Unggulan</span>",prod_subtitle:"Empat komoditas premium pilihan terbaik dari seluruh kepulauan Indonesia",
     p1_name:"Porang (Amorphophallus)",p1_desc:"Umbi porang kering / tepung konjak premium, tinggi glucomannan. Diminati industri pangan Jepang, China, dan Eropa sebagai bahan shirataki dan gelling agent.",p1_min:"Min. 1 Ton",p1_origin:"Jawa Timur",
     p2_name:"Cabe Jamu (Piper retrofractum)",p2_desc:"Lada panjang khas Jawa, kaya piperin dan capsaicin. Banyak diekspor ke India, Pakistan, dan Timur Tengah untuk kebutuhan farmasi dan rempah tradisional.",p2_min:"Min. 500 Kg",p2_origin:"Madura, Jatim",
@@ -336,7 +340,7 @@ const t={
     f1_title:"Direct from Farmers",f1_desc:"Products sourced directly, minimizing unnecessary intermediaries",
     f2_title:"Strict Quality Control",f2_desc:"Lab testing for every batch before shipment",
     f3_title:"Professional Packaging",f3_desc:"Packaging compliant with international export standards",
-    cert_title:"📋 Certifications & Standards",
+    cert_title:"Certifications & Standards",
     prod_label:"Our Products",prod_title:"Premium <span>Commodities</span>",prod_subtitle:"Four top-grade commodities from across the Indonesian archipelago",
     p1_name:"Porang (Amorphophallus)",p1_desc:"Dried porang tuber / premium konjac flour, high in glucomannan. In high demand by food industries in Japan, China, and Europe for shirataki and gelling applications.",p1_min:"Min. 1 Ton",p1_origin:"East Java",
     p2_name:"Long Pepper (Piper retrofractum)",p2_desc:"Javanese long pepper, rich in piperine and capsaicin. Widely exported to India, Pakistan, and the Middle East for pharmaceutical and traditional spice use.",p2_min:"Min. 500 Kg",p2_origin:"Madura, East Java",
